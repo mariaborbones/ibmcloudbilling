@@ -30,10 +30,6 @@ Choose between your organizations
 
 ![alt text](https://media.github.ibm.com/user/42357/files/27aece6a-9e2d-11e7-8e9a-780687d214dc)
 
-Be sure you have enough privileges to access to the billing information
---------------------------------------------------------------------------------
-
-![alt text](https://media.github.ibm.com/user/42357/files/28ae8788-9e2d-11e7-87a7-166a6540633b)
 
 Choose a month to display the data
 --------------------------------------------------------------------------------
@@ -46,8 +42,10 @@ Billing information displayed - Usage Data Comparison Chart
 
 ![alt text](https://media.github.ibm.com/user/42357/files/28746ae4-9e2d-11e7-9260-7f043f63c868)
 
+
 Billing information displayed - Usage Data Table
 --------------------------------------------------------------------------------
+
 ![alt text](https://media.github.ibm.com/user/42357/files/296f6eb2-9e2d-11e7-8f59-21e359c773f9)
 
 
