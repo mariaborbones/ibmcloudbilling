@@ -54,7 +54,7 @@ Files and folders in this repository
 
 `public folder`
 
-Contains the web application that has been developed using AngularJS technology.
+Contains the web application that has been developed using **AngularJS** and **Bootstrap**.
 
 ---
 
