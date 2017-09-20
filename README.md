@@ -12,13 +12,21 @@ My Billing shows detailed bluemix account usage information:
 * The app is accessible for IBM and NON IBM users.
 
 "My Billing App" is based on NodeJS technology and uses CF REST APIs to get Bluemix Information.
-You can check a demo [here](https://mybilling.mybluemix.net)
+
+You can check a **DEMO** [here](https://mybilling.mybluemix.net)
 
 Overview
 --------------------------------------------------------------------------------
 
-![alt text](imgs/Imagen1.png)
 
+
+![alt text](https://media.github.ibm.com/user/42357/files/27ff8e7c-9e2d-11e7-88ad-1afba430794f)
+![alt text](https://media.github.ibm.com/user/42357/files/2732f09c-9e2d-11e7-8c86-f33913766aae)
+![alt text](https://media.github.ibm.com/user/42357/files/27aece6a-9e2d-11e7-8e9a-780687d214dc)
+![alt text](https://media.github.ibm.com/user/42357/files/28ae8788-9e2d-11e7-87a7-166a6540633b)
+![alt text](https://media.github.ibm.com/user/42357/files/28f3b4c0-9e2d-11e7-89a1-ad1a364f77b8)
+![alt text](https://media.github.ibm.com/user/42357/files/28746ae4-9e2d-11e7-9260-7f043f63c868)
+![alt text](https://media.github.ibm.com/user/42357/files/296f6eb2-9e2d-11e7-8f59-21e359c773f9)
 
 
 Files and folders in this repository
