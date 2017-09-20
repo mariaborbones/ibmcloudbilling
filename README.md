@@ -3,17 +3,16 @@ My Billing
 
 After so many requests from customers for improving the `Bluemix usage dashboard` experience, I decided to create "My Billing App".
 
+My Billing shows detailed bluemix account usage information:
+
+* Users can check monthly usage for each space within an organization
+* It shows information about which services have been deployed in every space and their usage.
+* Monthly usage comparison data is displayed in a single chart
+* Data can be exported to a CSV or EXCEL file
+* The app is accessible for IBM and NON IBM users.
+
 "My Billin App" is based on NodeJS technology and uses CF REST APIs to get Bluemix Information.
 You can check a demo [here](https://mybilling.mybluemix.net)
-
-
-
-Install the code for the sample program
---------------------------------------------------------------------------------
-
-Click the magical button below to deploy the app.
-
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
 
 
 files in this repository
