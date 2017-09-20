@@ -15,27 +15,6 @@ Click the magical button below to deploy the app.
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
 
-or....
-
-From a command/shell terminal
-* `cd` into the parent directory you want to install the project in
-* `git clone` the project into a child directory
-* `cd` into that child directory
-* run `npm install` to install dependencies
-
-For example:
-
-    $ cd Projects
-    $ git clone https://github.com/IBM-Bluemix/bluemix-hello-node
-
-        ... git output here ...
-
-    $ cd bluemix-hello-node
-
-    $ npm install
-
-        ... npm output here ...
-
 
 files in this repository
 --------------------------------------------------------------------------------
