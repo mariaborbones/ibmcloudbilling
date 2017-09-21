@@ -1,7 +1,23 @@
 My Billing
 ================================================================================
 
-After so many requests from customers for improving the `Bluemix usage dashboard` experience, I decided to create "My Billing App".
+After so many requests from customers for improving the `Bluemix usage dashboard` experience, I decided to create "My Billing App" based on these customers requirements:
+
+
+* They wanted to be able to check usage and costs by spaces and not only by organizations
+* They also wanted to be able to export all the information and share it with other teams of their companies
+* And they wanted to be able to do a quick usage comparison among spaces
+
+# Content
+ 1. [Features](https://github.ibm.com/maria-borbones/mybilling#features)
+ 2. [Tecnhologies](https://github.ibm.com/maria-borbones/mybilling#technologies)
+ 3. [Demo](https://github.ibm.com/maria-borbones/mybilling#demo)
+ 4. [Author](https://github.ibm.com/maria-borbones/mybilling#author)
+ 5. [Screenshots](https://github.ibm.com/maria-borbones/mybilling#screenshots)
+ 6. [Files and folders in this repository](https://github.ibm.com/maria-borbones/mybilling#files-and-folders-in-this-repository)
+
+
+# 1. Features
 
 My Billing shows detailed bluemix account usage information:
 
@@ -11,49 +27,67 @@ My Billing shows detailed bluemix account usage information:
 * Data can be exported to a CSV or EXCEL file
 * The app is accessible for IBM and NON IBM users.
 
-"My Billing App" server-side is based on [NodeJS](https://nodejs.org/es/) technology and uses [CF REST APIs](http://apidocs.cloudfoundry.org/258/) to get Bluemix Information. I've used [AngularJS](https://angularjs.org/), [Bootstrap](http://getbootstrap.com/) and [ChartJS](http://www.chartjs.org/) for client-side.
+# 2. Tecnhologies
+
+Server-side is based on:
+
+* [NodeJS](https://nodejs.org/es/)
+* Uses [CF REST APIs](http://apidocs.cloudfoundry.org/258/) to get Bluemix Information
+
+Client-side is based on:
+
+* [AngularJS](https://angularjs.org/)
+* [Bootstrap](http://getbootstrap.com/)
+* [ChartJS](http://www.chartjs.org/) for client-side.
+
+"My Billing App" is deployed in [Bluemix](http://bluemix.net)
+
+# 3. Demo
 
 You can check a **DEMO** [here](https://mybilling.mybluemix.net)
 
-**Author:** María Borbonés - [@mariaborbones](http://twitter.com/mariaborbones)
+# 4. Author
+María Borbonés
+
+t: [@mariaborbones](http://twitter.com/mariaborbones)
+
+e: <maria.borbones@es.ibm.com>
 
 
-Non IBMers Authentication Form
---------------------------------------------------------------------------------
+# 5. Screenshots
+### 5.1 Non IBMers Authentication Form
+
 
 ![alt text](https://media.github.ibm.com/user/42357/files/27ff8e7c-9e2d-11e7-88ad-1afba430794f)
 
-IBMers Authentication Form (IBM ID SSO)
---------------------------------------------------------------------------------
+### 5.2 IBMers Authentication Form (IBM ID SSO)
+
 
 ![alt text](https://media.github.ibm.com/user/42357/files/2732f09c-9e2d-11e7-8c86-f33913766aae)
 
-Choose between your organizations
---------------------------------------------------------------------------------
+### 5.3 Choose between your organizations
 
 ![alt text](https://media.github.ibm.com/user/42357/files/27aece6a-9e2d-11e7-8e9a-780687d214dc)
 
 
-Choose a month to display the data
---------------------------------------------------------------------------------
+### 5.4 Choose a month to display the data
+
 
 ![alt text](https://media.github.ibm.com/user/42357/files/28f3b4c0-9e2d-11e7-89a1-ad1a364f77b8)
 
 
-Billing information displayed - Usage Data Comparison Chart
---------------------------------------------------------------------------------
+### 5.5 Billing information displayed - Usage Data Comparison Chart
 
 ![alt text](https://media.github.ibm.com/user/42357/files/28746ae4-9e2d-11e7-9260-7f043f63c868)
 
 
-Billing information displayed - Usage Data Table
---------------------------------------------------------------------------------
+### 5.6 Billing information displayed - Usage Data Table
+
 
 ![alt text](https://media.github.ibm.com/user/42357/files/296f6eb2-9e2d-11e7-8f59-21e359c773f9)
 
 
-Files and folders in this repository
---------------------------------------------------------------------------------
+# 6. Files and folders in this repository
 
 `public folder`
 
