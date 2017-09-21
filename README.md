@@ -38,7 +38,7 @@ Client-side is based on:
 
 * [AngularJS](https://angularjs.org/)
 * [Bootstrap](http://getbootstrap.com/)
-* [ChartJS](http://www.chartjs.org/) for client-side.
+* [ChartJS](http://www.chartjs.org/) 
 
 "My Billing App" is deployed in [Bluemix](http://bluemix.net)
 
