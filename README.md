@@ -17,7 +17,7 @@ You can check a **DEMO** [here](https://mybilling.mybluemix.net)
 
 **Author:** María Borbonés
 
-![alt text](http://icons.iconarchive.com/icons/limav/flat-gradient-social/256/Twitter-icon.png) @mariaborbones
+![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmykgx0s3pnIPk3Jh2jb_IP_I99igtR8poplqeSXFajwgmUuTT9A) 
 
 Non IBMers Authentication Form
 --------------------------------------------------------------------------------
