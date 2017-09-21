@@ -15,6 +15,9 @@ My Billing shows detailed bluemix account usage information:
 
 You can check a **DEMO** [here](https://mybilling.mybluemix.net)
 
+**Author:** María Borbonés
+![twitter](http://icons.iconarchive.com/icons/limav/flat-gradient-social/256/Twitter-icon.png) @mariaborbones
+
 Non IBMers Authentication Form
 --------------------------------------------------------------------------------
 
