@@ -27,7 +27,7 @@ My Billing shows detailed bluemix account usage information:
 * Data can be exported to a CSV or EXCEL file
 * The app is accessible for IBM and NON IBM users.
 
-# 2. Tecnhologies
+# 2. Technologies
 
 Server-side is based on:
 
