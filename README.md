@@ -9,12 +9,12 @@ After so many requests from customers for improving the `Bluemix usage dashboard
 * And they wanted to be able to do a quick usage comparison among spaces
 
 # Content
- 1. [Features](https://github.ibm.com/maria-borbones/mybilling#features)
- 2. [Tecnhologies](https://github.ibm.com/maria-borbones/mybilling#technologies)
- 3. [Demo](https://github.ibm.com/maria-borbones/mybilling#demo)
- 4. [Author](https://github.ibm.com/maria-borbones/mybilling#author)
- 5. [Screenshots](https://github.ibm.com/maria-borbones/mybilling#screenshots)
- 6. [Files and folders in this repository](https://github.ibm.com/maria-borbones/mybilling#files-and-folders-in-this-repository)
+ 1. [Features](https://github.ibm.com/maria-borbones/mybilling#1-features)
+ 2. [Tecnhologies](https://github.ibm.com/maria-borbones/mybilling#2-technologies)
+ 3. [Demo](https://github.ibm.com/maria-borbones/mybilling#3-demo)
+ 4. [Author](https://github.ibm.com/maria-borbones/mybilling#4-author)
+ 5. [Screenshots](https://github.ibm.com/maria-borbones/mybilling#5-screenshots)
+ 6. [Files and folders in this repository](https://github.ibm.com/maria-borbones/mybilling#6-files-and-folders-in-this-repository)
 
 
 # 1. Features
