@@ -11,7 +11,7 @@ My Billing shows detailed bluemix account usage information:
 * Data can be exported to a CSV or EXCEL file
 * The app is accessible for IBM and NON IBM users.
 
-"My Billing App" is based on NodeJS technology and uses CF REST APIs to get Bluemix Information.
+"My Billing App" server-side is based on [NodeJS](https://nodejs.org/es/) technology and uses [CF REST APIs](http://apidocs.cloudfoundry.org/258/) to get Bluemix Information. I've used [AngularJS](https://angularjs.org/), [Bootstrap](http://getbootstrap.com/) and [ChartJS](http://www.chartjs.org/) for client-side.
 
 You can check a **DEMO** [here](https://mybilling.mybluemix.net)
 
