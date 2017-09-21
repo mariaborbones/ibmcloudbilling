@@ -17,7 +17,7 @@ You can check a **DEMO** [here](https://mybilling.mybluemix.net)
 
 **Author:** María Borbonés
 
-![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmykgx0s3pnIPk3Jh2jb_IP_I99igtR8poplqeSXFajwgmUuTT9A) 
+![alt text](https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/062012/twitter-bird-light-bgs.png?itok=n5tiDiLM) 
 
 Non IBMers Authentication Form
 --------------------------------------------------------------------------------
