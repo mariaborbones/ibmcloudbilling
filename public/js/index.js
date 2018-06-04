@@ -95,7 +95,7 @@ app.controller('LoginController', function($scope, $rootScope, $stateParams, $st
           $window.sessionStorage.regionID = "eu-gb";
           $window.sessionStorage.regionURL = "eu-gb"
           break;
-        case 'SIDNEY':
+        case 'SYDNEY':
           $window.sessionStorage.regionID = "au-syd";
           $window.sessionStorage.regionURL = "au-syd";
           break;
@@ -169,7 +169,7 @@ app.controller('LoginpController', function($scope, $rootScope, $stateParams, $s
       case 'UNITED KINGDOM':
         $scope.passcodeurl = "eu-gb";
         break;
-      case 'SIDNEY':
+      case 'SYDNEY':
         $scope.passcodeurl = "au-syd";
         break;
       default:
@@ -205,7 +205,7 @@ app.controller('LoginpController', function($scope, $rootScope, $stateParams, $s
           $window.sessionStorage.regionID = "eu-gb";
           $window.sessionStorage.regionURL = "eu-gb"
           break;
-        case 'SIDNEY':
+        case 'SYDNEY':
           $window.sessionStorage.regionID = "au-syd";
           $window.sessionStorage.regionURL = "au-syd";
           break;
