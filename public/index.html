@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106546003-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments)
+    };
+    gtag('js', new Date());
+
+    gtag('config', 'UA-106546003-1');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="description" content="My Billing App">
+  <meta name="keywords" content="HTML,Angular,JavaScript,Bootstrap,Bluemix">
+  <meta name="author" content="Maria Borbones">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Billing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='css/style.css'>
+  <link rel='stylesheet prefetch' href='css/flat-ui.css'>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+  <script lang="javascript" src="js/FileSaver.js"></script>
+
+</head>
+
+<body>
+  <div class="container-fluid" id="content" ng-app="myApp" ng-cloak>
+    <!-- Image and text -->
+    <nav class="navbar navbar-inverse navbar-embossed" role="navigation" ng-controller="HeaderController">
+      <div class="navbar-header">
+
+        <a class="navbar-brand" href="#" ng-if="currentstate()"><span><img src="images/logo.png" width="30px" height="30" class="d-inline-block align-top" ></span>&nbsp; My Billing</a>
+        <a class="navbar-brand" href="#" ng-if="!currentstate()"><span><img src="images/logo.png" width="30px" height="30" class="d-inline-block align-top" ></span>&nbsp;Authentication</a>
+
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-01">
+        <ul class="nav navbar-nav navbar-left" ng-if="currentstate()">
+          <li><span class="navbar-text"> {{user}} ({{region}})</span></li>
+
+
+        </ul>
+        <form class="navbar-form navbar-right" action="#" role="search">
+          <div class="form-group" ng-if="currentstate()">
+            <span class="fa fa-sign-out fa-lg" aria-hidden="true"> </span><a href="#" class="tracking" ng-click="LogOut()" style="color:white">Log Out </a>&nbsp;
+
+          </div>
+        </form>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <!-- /navbar -->
+
+    <div ui-view></div>
+
+    <script type="text/ng-template" id="login.html" autoscroll="">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12" style="margin-top:20px">
+            <form ng-submit="formSubmit()" class="form justify-content-center">
+              <div class="col-md-4 col-md-offset-4 ">
+
+                <div class="alert alert-success" role="alert">
+                  If you are an <strong>IBM User.</strong> Please access <a ng-href="#/loginp">the SSO login</a></div>
+
+                <div class="form-group">
+                  <label for="region">Region</label>
+
+                  <select class="form-control" id="region" ng-model="account.region" required>
+                              <option value="">---Please select a region---</option>
+                              <option value="US-SOUTH">US South</option>
+                              <option value="SYDNEY">Sydney</option>
+                              <option value="GERMANY">Germany</option>
+                              <option value="UNITED KINGDOM">United Kingdom</option>
+                            </select>
+                </div>
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" class="form-control" ng-model="username" placeholder="username" required />
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" class="form-control" ng-model="password" placeholder="password" required />
+                </div>
+                <div class="form-group" style="margin-bottom:50px">
+                  <button type="submit" class="btn btn-lg btn-block btn-info">Login</button>
+                </div>
+
+                <div class="alert alert-danger alert-dismissable fade in" ng-show="showerror">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Error !</strong> {{errorText}}
+                </div>
+              </div>
+          </div>
+        </div>
+        </form>
+      </div>
+
+    </script>
+
+    <script type="text/ng-template" id="loginpasscode.html">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12" style="margin-top:20px">
+
+
+            <form ng-submit="formSubmit()" class="form justify-content-center">
+              <div class="col-md-4 col-md-offset-4 ">
+                <div class="alert alert-success" role="alert">
+                  If you are an not an <strong>IBM User.</strong> Please go back to <a href="#/login">the Regular login</a>
+                </div>
+
+                <div class="form-group">
+                  <label for="region">Region</label>
+                  <select class="form-control" id="region" ng-model="account.region" ng-change="selectupdated()" required>
+                            <option value="">---Please select a region---</option>
+                            <option value="US-SOUTH">US South</option>
+                            <option value="SYDNEY">Sydney</option>
+                            <option value="GERMANY">Germany</option>
+                            <option value="UNITED KINGDOM">United Kingdom</option>
+                          </select>
+                </div>
+                <div class="form-group" ng-show="showsso">
+                  <p>Get your SSO code access at <a href="https://login.{{passcodeurl}}.bluemix.net/UAALoginServerWAR/passcode" target="_blank">https://login.{{passcodeurl}}.bluemix.net/UAALoginServerWAR/passcode</a> </p>
+
+                  <label for="username">SSO code</label>
+                  <input type="text" id="passcode" class="form-control" ng-model="passcode" placeholder="sso code" required />
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-lg btn-block btn-info">Login</button>
+                </div>
+
+                <div class="alert alert-danger alert-dismissable fade in" ng-show="showerror">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Error !</strong> {{errorText}}
+                </div>
+              </div>
+          </div>
+        </div>
+        </form>
+      </div>
+
+    </script>
+
+    <script type="text/ng-template" id="home.html">
+      <div class="container d-flex h-100">
+        <div id="export2file" ng-show="showexport">
+          <span us-spinner="{radius:10, width:4, length: 8}" spinner-key="spinner-1" spinner-start-active="stop"></span>
+          <p class="pull-right">
+            <span class="fa fa-arrow-right" aria-hidden="true"></span> Export
+            <span ng-if="selection.services.length==0" class="ng-scope">catalog</span> to&nbsp;
+            <a href="#" class="tracking" data-track-action="Export" data-track-label="Excel" ng-click="exportexcel()" style="color:white"><img border="0" src="images/excel_logo.png" width="30" height="30"></a>&nbsp;
+            <a href="#" class="tracking" data-track-action="Export" data-track-label="CSV" ng-click="exportTableToCSV()" style="color:white"><img border="0" src="images/csv.png" width="30" height="30"></a>&nbsp;
+
+          </p>
+        </div>
+        <div class="col-md-12" style="margin-top:20px">
+          <div class="form-group">
+            <label for="organizations">Organizations</label>
+            <select class="form-control" id="organizations" ng-model="selectedItem" ng-change="update()">
+                        <option value="">---Please select an organization---</option>
+                        <option ng-repeat="organization in account.organizations" value="{{organization.metadata.guid}}">{{organization.entity.name}}</option>
+
+                      </select>
+          </div>
+
+          <div class="alert alert-danger" ng-show="showerror">
+            <strong>Error !</strong> {{errorText}}
+          </div>
+          <!-- Calendar HTML -->
+          <div class="row center-block justify-content-center align-self-center" ng-show="showcalendar">
+            <div class="col-4 col-md-4 col-lg-4 col-xl-4">
+              <div class="monthPicker ">
+                <div class="monthPicker-top">
+                  <button class="monthPicker-top-action btn" ng-click="year = year -1">
+                        <span class="fa fa-angle-left"></span>
+                    </button>
+                  <button class="monthPicker-top-current btn">
+                        <span class="currentYear lead">Year {{year}}</span>
+                        <span class="selectYear">Jump Years</span>
+                    </button>
+                  <button class="monthPicker-top-action btn" ng-click="increaseyear()">
+                        <span class="fa fa-angle-right"></span>
+                    </button>
+                </div>
+                <div class="monthPicker-body">
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(1)" ng-disabled="checkdate(1)" ng-class="getclass(1)"><span>Jan.</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(2)" ng-disabled="checkdate(2)" ng-class="getclass(2)"><span>Feb.</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(3)" ng-disabled="checkdate(3)" ng-class="getclass(3)"><span>Mar.</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(4)" ng-disabled="checkdate(4)" ng-class="getclass(4)"><span>Apr.</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(5)" ng-disabled="checkdate(5)" ng-class="getclass(5)"><span>May</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(6)" ng-disabled="checkdate(6)" ng-class="getclass(6)"><span>June</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(7)" ng-disabled="checkdate(7)" ng-class="getclass(7)"><span>July</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(8)" ng-disabled="checkdate(8)" ng-class="getclass(8)"><span>Aug.</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(9)" ng-disabled="checkdate(9)" ng-class="getclass(9)"><span>Sep.</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(10)" ng-disabled="checkdate(10)" ng-class="getclass(10)"><span>Oct.</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(11)" ng-disabled="checkdate(11)" ng-class="getclass(11)"><span>Nov.</span></button>
+                  <button class="monthPicker-body-month" ng-click="billingbymonth(12)" ng-disabled="checkdate(12)" ng-class="getclass(12)"><span>Dec.</span></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 col-md-8 col-lg-8 col-xl-8">
+              <div ng-show="showchart" class="chartjs-wrapper"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+
+                <canvas id="canvas" class="chartjs" width="1540" height="770" style="display: block; height: 385px; width: 770px;"></canvas>
+
+              </div>
+            </div>
+          </div>
+          <!-- CALENDAR END -->
+
+          <div id="exportable" ng-show="showbillingtable">
+            <h3>Non Billable Usage</h3>
+            <div class="list-group" ng-repeat="space in spaces">
+              <a href="#" class="list-group-item active listheader">
+                      SPACE: <strong style="color:#1bb098">{{space.name}}</strong><span class="badge"> Total: {{ getTotal(space) }} €</span><!--{{getname(space.id)}}-->
+                    </a>
+              <table class="table">
+                <thead class="tableheader">
+                  <tr>
+                    <th>Icon</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>Tags</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="application in space.applications">
+                    <td></td>
+                    <td>{{application.usage[0].runtime.name}}</td>
+                    <td>{{application.name}}</td>
+                    <td class="cost">{{(application.usage[0].cost).toFixed(2)}} €</td>
+                    <td>
+                      <span class="label label-info">Application</span>
+                      <span class="label label-primary">Non Billable</span>
+
+                    </td>
+                  </tr>
+                  <tr ng-repeat-start="service in space.services">
+
+                    <td rowspan="{{service.instances.length}}"><img ng-src="{{getpic(service.id)}}" class="service-small-icon"></td>
+                    <td rowspan="{{service.instances.length}}"> {{service.name}}</td>
+                    <td ng-if="service.instances.length == 1">{{service.instances[0].name}}</td>
+
+                    <td ng-if="service.instances.length == 1" class="cost">
+
+                      <ul>
+                        <li ng-repeat="use in service.instances[0].usage"><strong>{{use.unitId}}</strong> : {{(use.cost).toFixed(2)}} €</li>
+                      </ul>
+                    </td>
+
+                    <td ng-if="service.instances.length == 1">
+                      <span class="label label-warning">Service</span>
+                      <span class="label label-primary">Non Billable</span>
+                    </td>
+
+                  </tr>
+                  <tr ng-repeat-end ng-repeat="instance in service.instances.slice(1)">
+                    <td>{{instance.name}}</td>
+                    <td class="cost">
+                      <ul>
+                        <li ng-repeat="use in instance.usage"><strong>{{use.unitId}}</strong> : {{(use.cost).toFixed(2)}} €</li>
+                      </ul>
+                    </td>
+
+                    <td>
+                      <span class="label label-warning">Service</span>
+                      <span class="label label-primary">Non Billable</span>
+                    </td>
+                  </tr>
+
+
+
+
+                </tbody>
+              </table>
+
+            </div>
+            <!--Billable Usage -->
+            <h3>Billable Usage</h3>
+            <div class="list-group" ng-repeat="space in spaces2">
+              <a href="#" class="list-group-item active listheader">
+                      SPACE: <strong style="color:#1bb098">{{space.name}}</strong><span class="badge"> Total: {{ getTotal(space) }} €</span><!--{{getname(space.id)}}-->
+                    </a>
+              <table class="table">
+                <thead class="tableheader">
+                  <tr>
+                    <th>Icon</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>Tags</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="application in space.applications">
+                    <td></td>
+                    <td>{{application.usage[0].runtime.name}}</td>
+                    <td>{{application.name}}</td>
+                    <td class="cost">{{(application.usage[0].cost).toFixed(2)}} €</td>
+                    <td>
+                      <span class="label label-info">Application</span>
+                      <span class="label label-success">Billable</span>
+
+                    </td>
+                  </tr>
+                  <tr ng-repeat-start="service in space.services">
+
+                    <td rowspan="{{service.instances.length}}"><img ng-src="{{getpic(service.id)}}" class="service-small-icon"></td>
+                    <td rowspan="{{service.instances.length}}"> {{service.name}}</td>
+                    <td ng-if="service.instances.length == 1">{{service.instances[0].name}}</td>
+
+                    <td ng-if="service.instances.length == 1" class="cost">
+
+                      <ul>
+                        <li ng-repeat="use in service.instances[0].usage"><strong>{{use.unitId}}</strong> : {{(use.cost).toFixed(2)}} €</li>
+                      </ul>
+                    </td>
+
+                    <td ng-if="service.instances.length == 1">
+                      <span class="label label-warning">Service</span>
+                      <span class="label label-success">Billable</span>
+                    </td>
+
+                  </tr>
+                  <tr ng-repeat-end ng-repeat="instance in service.instances.slice(1)">
+                    <td>{{instance.name}}</td>
+                    <td class="cost">
+                      <ul>
+                        <li ng-repeat="use in instance.usage"><strong>{{use.unitId}}</strong> : {{(use.cost).toFixed(2)}} €</li>
+                      </ul>
+                    </td>
+
+                    <td>
+                      <span class="label label-warning">Service</span>
+                      <span class="label label-success">Billable</span>
+                    </td>
+                  </tr>
+
+
+
+
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </script>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <span class="text-muted text-center">Application developed by <a href="https://twitter.com/mariaborbones">@mariaborbones</a></span>
+    </div>
+  </footer>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js'></script>
+  <script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+
+  <script lang="javascript" src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+  <script lang="javascript" src="js/utils.js"></script>
+  <script lang="javascript" src="js/moment.js"></script>
+
+
+  <script src="js/spin.min.js"></script>
+  <script src="js/angular-spinner.js"></script>
+  <script src="js/index.js"></script>
+  <script lang="javascript" src="js/services.js"></script>
+
+
+</body>
+
+</html>
