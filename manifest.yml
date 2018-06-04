@@ -1,6 +1,0 @@
----
-applications:
-- name:    mybilling
-  host: mybilling
-  random-route: true
-  memory:  128M
